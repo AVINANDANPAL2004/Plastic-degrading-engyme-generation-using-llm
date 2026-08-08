@@ -1,0 +1,177 @@
+# 🧬 Protein Language Model for Enzyme Generation
+
+## 🚀 Project Overview
+
+This project implements a Transformer-based Large Language Model (LLM) to generate novel enzyme sequences using deep learning.
+
+The model learns patterns from known enzyme sequences  and generates biologically valid protein sequences, demonstrating the application of Generative AI in protein engineering.
+
+---
+(Note-
+1.If you WANT TO RUN FULL PIPELINE IN ONE CLICK ,THEN RUN run(with_proper_training).py FILE
+2.If you WANT TO RUN FULL PIPELINE IN ONE CLICK(Without running the training scripts),THEN RUN inferenceonly.py FILE)
+## 📁 Project Structure
+
+```
+protein-llm-enzyme/
+│
+├── data/
+│   ├── petase_clean.fasta
+│   ├── cutinase.fasta.gz
+│
+├── src/
+│   ├── filter_data.py
+│   ├── encode_sequences.py
+│   ├── train_model.py
+│   ├── generate_sequences.py
+│   ├── plot_loss.py
+│
+├── outputs/
+│   ├── merged_clean_enzymes.fasta
+│   ├── generated_enzymes.fasta
+│   ├── training_losses.json
+│   ├── model.pt
+│
+
+Minimum Requirements:
+- CPU: 4 cores (i5 / Ryzen 5)
+- RAM: 8 GB (16 GB recommended)
+- GPU: Optional (CPU supported but slow)
+
+Recommended:
+- CPU: 6+ cores
+- RAM: 16 GB
+- GPU: NVIDIA GTX 1650 / RTX 3050 (CUDA supported)
+
+For Best Performance:
+- GPU: RTX 3060 or higher
+- RAM: 32 GB
+- Storage: SSD (NVMe preferred)
+
+Cloud (Recommended if no GPU available):
+- Use Google Colab (free GPU: Tesla T4 / P100)
+- Or Kaggle Notebooks (free GPU support)
+- No installation required, runs directly in browser
+- Suitable for training small to medium models (~16k sequences)
+
+Notes:
+
+- For large models, prefer high VRAM GPUs (6GB+)
+
+---
+
+## ⚙️ Installation
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+```bash
+# Mac/Linux
+source venv/bin/activate
+
+# Windows
+venv\Scripts\activate
+```
+
+### Install Dependencies
+
+```bash
+pip install torch biopython matplotlib numpy pandas
+```
+
+---------------------------------------------------------------------------------
+
+▶️ Usage Pipeline
+
+ 1️⃣ Filter Data
+
+```bash
+python src/filter_data.py
+```
+
+ 2️⃣ Encode Sequences
+
+```bash
+python src/encode_sequences.py
+```
+
+ 3️⃣ Train Model
+
+```bash
+python src/train_model.py
+```
+
+ 4️⃣ Generate New Enzymes
+
+```bash
+python src/generate_sequences.py
+```
+
+ 5️⃣ Plot Training Loss
+
+```bash
+python src/plot_loss.py
+```
+
+---
+
+ 🧠 Model Details
+
+* Architecture: Transformer-based autoregressive model
+* Input: Amino acid sequences
+* Output: Generated protein sequences
+* Loss Function: Cross-Entropy
+* Optimizer: AdamW
+
+---
+
+ 📊 Results
+
+* Successfully generated enzyme-like protein sequences
+* Training loss reduced from ~2.6 → ~1.3
+* Generated sequences:
+
+  contain valid amino acids
+  follow realistic length distribution
+  are not copied from training data
+
+---
+
+🔬 Validation
+
+* Verified amino acid validity
+* Checked sequence similarity (no memorization)
+* Generated sequences show enzyme-like patterns
+
+---
+
+## 🔥 Key Features
+
+* Custom protein tokenizer
+* Transformer-based generative model
+* End-to-end pipeline (data → training → generation)
+* GPU-accelerated training
+
+---
+
+## 📌 Future Improvements
+
+* Train on larger datasets (UniProt / UniRef)
+* Integrate structure prediction (AlphaFold / ESMFold)
+* Add advanced sampling (top-k / nucleus sampling)
+* Perform BLAST-based biological validation
+
+---
+
+## 🧠 Conclusion
+
+This project demonstrates how Generative AI can be applied to biological sequence modeling, enabling the generation of novel enzyme-like proteins using deep learning.
+
+---
+
+⭐ This project showcases an end-to-end implementation of a protein language model for enzyme generation.
